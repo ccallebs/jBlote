@@ -60,7 +60,7 @@ class Bloat
     @raw_html += ">"
     return this;
 
-  @close_tag: (tag_name)
+  @close_tag: (tag_name) ->
     @raw_html += "</" + tag_name + ">"
     return this
 

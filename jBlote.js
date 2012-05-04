@@ -16,82 +16,76 @@
     };
 
     Bloat.prototype.div = function(options) {
-      this.raw_html += "<div";
-      this.raw_html += apply_options(options);
-      this.raw_html += ">";
-      return this;
+      return open_tag('div', options);
     };
 
     Bloat.prototype.$div = function() {
-      this.raw_html += "</div>";
-      return this;
+      return close_tag('div');
     };
 
     Bloat.prototype.span = function(options) {
-      this.raw_html += "<span";
-      this.raw_html += apply_options(options);
-      this.raw_html += ">";
-      return this;
+      return open_tag('span', options);
     };
 
     Bloat.prototype.$span = function() {
-      return this.raw_html += "</span>";
+      return close_tag('span');
     };
 
     Bloat.prototype.br = function() {
-      this.raw_html += "<br />";
-      return this;
+      return simple_tag('br');
     };
 
     Bloat.prototype.p = function(options) {
-      this.raw_html += "<p";
-      this.raw_html += apply_options(options);
-      this.raw_html += ">";
-      return this;
+      return open_tag('p', options);
     };
 
     Bloat.prototype.$p = function() {
-      this.raw_html += "</p>";
-      return this;
+      return close_tag('p');
     };
 
     Bloat.prototype.table = function(options) {
-      this.raw_html += "<table";
-      this.raw_html += apply_options(options);
-      this.raw_html += ">";
-      return this;
+      return open_tag('table', options);
     };
 
     Bloat.prototype.$table = function() {
-      this.raw_html += "</table>";
-      return this;
+      return close_tag('table');
     };
 
     Bloat.prototype.tr = function(options) {
-      this.raw_html += "<tr";
-      this.raw_html += apply_options(options);
-      this.raw_html += ">";
-      return this;
+      return open_tag('tr', options);
     };
 
     Bloat.prototype.$tr = function() {
-      return this.raw_html += "</tr>";
+      return close_tag('tr');
     };
 
     Bloat.prototype.td = function(options) {
-      this.raw_html += "<td";
-      this.raw_html += apply_options(options);
-      this.raw_html += ">";
-      return this;
+      return open_tag('td', options);
     };
 
     Bloat.prototype.$td = function() {
-      this.raw_html += "</td>";
-      return this;
+      return close_tag('td');
     };
 
     Bloat.prototype["export"] = function() {
       return this.raw_html;
+    };
+
+    Bloat.simple_tag = function(tag_name) {
+      this.raw_html += "<" + tag_name + " />";
+      return this;
+    };
+
+    Bloat.open_tag = function(tag_name, options) {
+      this.raw_html += "<" + tag_name;
+      this.raw_html += apply_options(options);
+      this.raw_html += ">";
+      return this;
+    };
+
+    Bloat.close_tag = function(tag_name) {
+      this.raw_html += "</" + tag_name + ">";
+      return this;
     };
 
     Bloat.apply_options = function(options) {
