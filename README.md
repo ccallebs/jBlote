@@ -11,7 +11,7 @@ function draw_table() {
   obj = Blote
     obj.table().tr();
       obj.td();
-       obj.literal('I'm in cell #1');
+       obj.literal('I\'m in cell #1');
       obj.$td();
       obj.td();
         obj.literal('I\'m in cell #2');
