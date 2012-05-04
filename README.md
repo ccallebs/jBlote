@@ -5,6 +5,8 @@ A not-so-minimalistic javascript templating engine.
 
 This is a work in progress. The syntax will surely change, but I felt that a need existed for a procedural templating engine.
 
+#### Not all tags are implemented yet. Do not use in production. ####
+
 ### Example usage:
 
 ```javascript
