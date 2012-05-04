@@ -26,8 +26,8 @@ $('body').append(draw_table());
 
 As a general rule, you open a tag with *.tag_name() and close it with *.$tag_name(). Some tags do not need to be closed:
 
-* *.br() implements <br />
-* *.hr() implements <hr />
+* *.br() implements &lt;br /&gt;
+* *.hr() implements &lt;hr /&gt;
 * Basically, it follows the XHTML standard
 
 This is still a work in progress. There will be many bugs.
