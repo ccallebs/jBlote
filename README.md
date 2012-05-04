@@ -11,7 +11,7 @@ This is a work in progress. The syntax will surely change, but I felt that a nee
 
 ```javascript
 function draw_table() {
-  obj = Blote
+  obj = Blote;
   obj.table().tr();
   obj.td();
   obj.literal('I\'m in cell #1');
