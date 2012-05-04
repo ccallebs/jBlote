@@ -9,13 +9,13 @@ Example usage:
 ```javascript
 function draw_table() {
   obj = Blote
-    obj.table().tr();
-      obj.td();
-       obj.literal('I\'m in cell #1');
-      obj.$td();
-      obj.td();
-        obj.literal('I\'m in cell #2');
-      obj.$td();
+  obj.table().tr();
+  obj.td();
+  obj.literal('I\'m in cell #1');
+  obj.$td();
+  obj.td();
+  obj.literal('I\'m in cell #2');
+  obj.$td();
   obj.$tr().$table();
 
   return obj.export();
@@ -34,7 +34,7 @@ This is how you implement tag properties:
 ```javascript
 obj.div(
   { class: 'rad-class', id: 'best-div' }
-)
+);
 ```
 
 This is still a work in progress. There will be many bugs.
