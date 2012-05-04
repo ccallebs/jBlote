@@ -1,4 +1,4 @@
-class Bloat 
+class Blote 
   constructor: (args) ->
     @raw_html = ""
 
@@ -73,4 +73,4 @@ class Bloat
   @null_or_empty: (x) ->
     return (x == null || x == "" || x == undefined)
 
-window.Bloat = Bloat
+window.Blote = Blote
