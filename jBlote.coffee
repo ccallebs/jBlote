@@ -7,69 +7,62 @@ class Bloat
     return this;
 
   div: (options) ->
-    @raw_html += "<div" 
-    @raw_html += apply_options(options)    
-    @raw_html += ">"
-    return this
+    return open_tag('div', options)
 
   $div: ->
-    @raw_html += "</div>"
-    return this
+    return close_tag('div')
 
   span: (options) ->
-    @raw_html += "<span"
+    return open_tag('span', options)
+
+  $span: -> 
+    return close_tag('span')
+
+  br: ->
+    return simple_tag('br')
+
+  p: (options) ->
+    return open_tag('p', options)
+
+  $p: ->
+    return close_tag('p')
+
+  table: (options) ->
+    return open_tag('table', options)
+
+  $table: ->
+    return close_tag('table')
+
+  tr: (options) ->
+    return open_tag('tr', options)
+
+  $tr: ->
+    return close_tag('tr')
+
+  td: (options) ->
+    return open_tag('td', options)
+
+  $td: ->
+    return close_tag('td')
+
+  export: ->
+    return @raw_html
+
+  # Helper methods
+
+  @simple_tag: (tag_name) ->
+    @raw_html += "<" + tag_name + " />"
+    return this
+
+  @open_tag: (tag_name, options) ->
+    @raw_html += "<" + tag_name
     @raw_html += apply_options(options)
     @raw_html += ">"
     return this;
 
-  $span: -> 
-    @raw_html += "</span>"
-
-  br: ->
-    @raw_html += "<br />"
+  @close_tag: (tag_name)
+    @raw_html += "</" + tag_name + ">"
     return this
-
-  p: (options) ->
-    @raw_html += "<p"
-    @raw_html += apply_options(options)
-    @raw_html += ">"
-    return this
-
-  $p: ->
-    @raw_html += "</p>"
-    return this
-
-  table: (options) ->
-    @raw_html += "<table"
-    @raw_html += apply_options(options)
-    @raw_html += ">"
-    return this
-
-  $table: ->
-    @raw_html += "</table>"
-    return this
-
-  tr: (options) ->
-    @raw_html += "<tr"
-    @raw_html += apply_options(options)
-    @raw_html += ">"
-    return this
-
-  $tr: ->
-    @raw_html += "</tr>"
-
-  td: (options) ->
-    @raw_html += "<td"
-    @raw_html += apply_options(options)
-    @raw_html += ">"
-    return this
-
-  $td: ->
-    @raw_html += "</td>"
-    return this
-
-  export: ->
-    return @raw_html
 
   @apply_options: (options) ->
     text = ""
