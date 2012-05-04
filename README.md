@@ -30,4 +30,11 @@ As a general rule, you open a tag with *.tag_name() and close it with *.$tag_nam
 * *.hr() implements &lt;hr /&gt;
 * Basically, it follows the XHTML standard
 
+This is how you implement tag properties:
+```javascript
+obj.div(
+  { class: 'rad-class', id: 'best-div' }
+)
+```
+
 This is still a work in progress. There will be many bugs.

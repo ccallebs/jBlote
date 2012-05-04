@@ -75,8 +75,7 @@ class Bloat
     text = ""
     for key, value of options
       text += " " + key + "=\"" value "\""
-    return text
-      
+    return text      
 
   @null_or_empty: (x) ->
     return (x == null || x == "" || x == undefined)
