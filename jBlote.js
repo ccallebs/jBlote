@@ -17,12 +17,7 @@
 
     Bloat.prototype.div = function(options) {
       this.raw_html += "<div";
-      if (!(Bloat.null_or_empty(options) || Bloat.null_or_empty(options.id))) {
-        this.raw_html += " id=\"" + options.id + "\"";
-      }
-      if (!(Bloat.null_or_empty(options) || Bloat.null_or_empty(options["class"]))) {
-        this.raw_html += " class=\"" + options["class"] + "\"";
-      }
+      this.raw_html += apply_options(options);
       this.raw_html += ">";
       return this;
     };
@@ -33,7 +28,9 @@
     };
 
     Bloat.prototype.span = function(options) {
-      this.raw_html += "<span>";
+      this.raw_html += "<span";
+      this.raw_html += apply_options(options);
+      this.raw_html += ">";
       return this;
     };
 
@@ -47,7 +44,9 @@
     };
 
     Bloat.prototype.p = function(options) {
-      this.raw_html += "<p>";
+      this.raw_html += "<p";
+      this.raw_html += apply_options(options);
+      this.raw_html += ">";
       return this;
     };
 
@@ -57,7 +56,9 @@
     };
 
     Bloat.prototype.table = function(options) {
-      this.raw_html += "<table>";
+      this.raw_html += "<table";
+      this.raw_html += apply_options(options);
+      this.raw_html += ">";
       return this;
     };
 
@@ -67,7 +68,9 @@
     };
 
     Bloat.prototype.tr = function(options) {
-      this.raw_html += "<tr>";
+      this.raw_html += "<tr";
+      this.raw_html += apply_options(options);
+      this.raw_html += ">";
       return this;
     };
 
@@ -76,7 +79,9 @@
     };
 
     Bloat.prototype.td = function(options) {
-      this.raw_html += "<td>";
+      this.raw_html += "<td";
+      this.raw_html += apply_options(options);
+      this.raw_html += ">";
       return this;
     };
 
@@ -87,6 +92,16 @@
 
     Bloat.prototype["export"] = function() {
       return this.raw_html;
+    };
+
+    Bloat.apply_options = function(options) {
+      var key, text, value;
+      text = "";
+      for (key in options) {
+        value = options[key];
+        text += " " + key + "=\"" + value("\"");
+      }
+      return text;
     };
 
     Bloat.null_or_empty = function(x) {

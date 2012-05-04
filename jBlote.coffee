@@ -71,10 +71,10 @@ class Bloat
   export: ->
     return @raw_html
 
-  @apply_options(options)
+  @apply_options: (options) ->
     text = ""
     for key, value of options
-      text += " " + key + "=\"" value "\""
+      text += " " + key + "=\"" + value "\""
     return text      
 
   @null_or_empty: (x) ->
