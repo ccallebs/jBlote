@@ -21,4 +21,5 @@ function draw_table() {
   return obj.export();
 }
 
-$('body').append(draw_table())```
+$('body').append(draw_table());
+```
