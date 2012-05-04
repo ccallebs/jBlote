@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <script type="text/javascript" src="jBloat.js"></script>
+    </head>
+
+    <body>
+        <h1>jBloat</h1>
+
+        <script type="text/javascript">
+            function table() {
+                t = new Bloat;
+                
+                t.table();
+                  t.tr();
+                    t.td();
+                      t.literal("hello!")
+                    t.$td();
+                  t.$tr();
+                t.$table();
+
+                return t.export();
+            }
+
+            alert(table());
+
+            template2 = new Bloat;
+            template2.p();
+            template2.br();
+            //alert(template2.html());
+
+            template3 = new Bloat;
+            template3.div({
+                id: 'test1',
+                class: 'test2'
+            });
+            alert(template3.export())
+
+
+            var template4 = new Bloat;
+
+            template4.table().tr().td().literal("table").td("yeah")
+            alert(template4.export());
+        </script>
+    </body>
+</html>
