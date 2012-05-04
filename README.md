@@ -5,7 +5,8 @@ A not-so-minimalistic javascript templating engine.
 
 This is a work in progress. The syntax will surely change, but I felt that a need existed for a procedural templating engine.
 
-Example usage:
+### Example usage:
+
 ```javascript
 function draw_table() {
   obj = Blote
@@ -37,4 +38,4 @@ obj.div(
 );
 ```
 
-This is still a work in progress. There will be many bugs.
+Let me know if you have any suggestions.
