@@ -1,1 +1,19 @@
-Test Page
+<html>
+    <head>
+        <script type="text/javascript" src="jBloat.js"></script>
+    </head>
+
+    <body>
+        <h1>jBloat</h1>
+
+        <script type="text/javascript">
+            function link(src, body) {
+                blo = new Blote;
+                blo.a({ href: src }).literal(body);
+                return blo.export();
+            }
+
+            alert(link("http://google.com", 'Google'))
+        </script>
+    </body>
+</html>
