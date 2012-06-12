@@ -1,4 +1,4 @@
-class Blote 
+class jBlote 
   constructor: (args) ->
     @raw_html = ""
 
@@ -6,44 +6,12 @@ class Blote
     @raw_html += text
     return this;
 
-  div: (options) ->
-    return open_tag('div', options)
-
-  $div: ->
-    return close_tag('div')
-
-  span: (options) ->
-    return open_tag('span', options)
-
-  $span: -> 
-    return close_tag('span')
+  a: (options) ->
+    @raw_html += @open_tag('a', options)
+    return this;
 
   br: ->
-    return simple_tag('br')
-
-  p: (options) ->
-    return open_tag('p', options)
-
-  $p: ->
-    return close_tag('p')
-
-  table: (options) ->
-    return open_tag('table', options)
-
-  $table: ->
-    return close_tag('table')
-
-  tr: (options) ->
-    return open_tag('tr', options)
-
-  $tr: ->
-    return close_tag('tr')
-
-  td: (options) ->
-    return open_tag('td', options)
-
-  $td: ->
-    return close_tag('td')
+    @raw_html += @simple_tag('br')
 
   export: ->
     return @raw_html
@@ -73,4 +41,4 @@ class Blote
   @null_or_empty: (x) ->
     return (x == null || x == "" || x == undefined)
 
-window.Blote = Blote
+window.Blote = new jBlote
