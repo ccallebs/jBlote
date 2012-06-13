@@ -1,25 +1,25 @@
-jBlote
+jBlote 0.9a
 ======
 
 A not-so-minimalistic javascript templating engine.
-
-This is a work in progress. The syntax will surely change, but I felt that a need existed for a procedural templating engine.
-
-#### Not all tags are implemented yet. Do not use in production. ####
 
 ### Example usage:
 
 ```javascript
 function draw_table() {
-  obj = Blote;
-  obj.table().tr();
-  obj.td();
-  obj.literal('I\'m in cell #1');
-  obj.$td();
-  obj.td();
-  obj.literal('I\'m in cell #2');
-  obj.$td();
-  obj.$tr().$table();
+  obj = Blote();
+
+  obj.table()
+      .tr()
+      .inj(
+        Blote()
+          .td()
+          .literal('Contents of cell #1')
+      ).inj(
+        Blote()
+          .td()
+          .literal('Contents of cell #2')
+      )
 
   return obj.export();
 }
@@ -27,17 +27,10 @@ function draw_table() {
 $('body').append(draw_table());
 ```
 
-As a general rule, you open a tag with *.tag_name() and close it with *.$tag_name(). Some tags do not need to be closed:
+If you'd like to implement tag properties (And I'm sure you do), this is how it's done:
 
-* *.br() implements &lt;br /&gt;
-* *.hr() implements &lt;hr /&gt;
-* Basically, it follows the XHTML standard
-
-This is how you implement tag properties:
 ```javascript
-obj.div(
-  { class: 'rad-class', id: 'best-div' }
-);
+obj = Blote().div({ class: 'my_class', id: 'my_div' });
 ```
 
-Let me know if you have any suggestions.
+All HTML5 should be supported. Suggestions are welcome.
