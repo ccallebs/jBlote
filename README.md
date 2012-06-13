@@ -9,6 +9,9 @@ A not-so-minimalistic javascript templating engine.
 function draw_table() {
   obj = Blote();
 
+  // The inj(..) function enables you to nest tags within each other
+  // breaking the FILO convention
+
   obj.table()
       .tr()
       .inj(
@@ -19,7 +22,12 @@ function draw_table() {
         Blote()
           .td()
           .literal('Contents of cell #2')
-      )
+      );
+
+  // Tags can also be staggered instead of chained
+
+  obj.p();
+  obj.literal('This text is inside a paragraph.');
 
   return obj.export();
 }
