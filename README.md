@@ -68,7 +68,7 @@ A bit messier, eh? The `inj()` function tells jBlote that the object parameters 
 
     function draw_cell(i, j) {
       var cell = Blote();
-      cell.td().literal('Row ' + j + ', Col ' + i)
+      cell.td().literal('Row ' + j + ', Col ' + i);
       return cell;
     }
 
