@@ -50,7 +50,7 @@ A bit messier, eh? The `inj()` function tells jBlote that the object parameters 
       table.table({ cellpadding: 0, cellshading: 0 });
       
       for (i = 0; i < rows; ++i)
-        table.inj(draw_row(i, columns))
+        table.inj(draw_row(i, columns));
     
       return table;
     }
@@ -61,7 +61,7 @@ A bit messier, eh? The `inj()` function tells jBlote that the object parameters 
       row.tr();
       
       for (i = 0; i < columns; ++i)
-        row.inj(draw_cell(row, i))
+        row.inj(draw_cell(row, i));
    
       return row;
     }
